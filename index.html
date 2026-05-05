@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Joke of the Day</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="page">
+    <h1 class="heading">Joke of the Day</h1>
+    <p class="subheading">A new joke every time you click!</p>
+
+    <div class="card">
+
+      <!-- category badges -->
+      <div class="categories">
+        <button class="cat-btn active" onclick="setCategory(this, 'Any')">Any</button>
+        <button class="cat-btn" onclick="setCategory(this, 'Programming')">Programming</button>
+        <button class="cat-btn" onclick="setCategory(this, 'Misc')">Misc</button>
+        <button class="cat-btn" onclick="setCategory(this, 'Pun')">Pun</button>
+        <button class="cat-btn" onclick="setCategory(this, 'Spooky')">Spooky</button>
+      </div>
+
+      <!-- joke display -->
+      <div class="joke-box" id="jokeBox">
+        <div class="loader" id="loader">
+          <div class="spinner"></div>
+          <p>Fetching joke...</p>
+        </div>
+        <div class="joke-content" id="jokeContent" style="display:none">
+          <div class="joke-type" id="jokeType"></div>
+          <p class="joke-setup" id="jokeSetup"></p>
+          <div class="punchline-reveal" id="punchlineReveal" style="display:none">
+            <button class="reveal-btn" onclick="revealPunchline()">
+              Reveal Punchline 👇
+            </button>
+            <p class="joke-punchline" id="jokePunchline" style="display:none"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- reaction -->
+      <div class="reactions" id="reactions" style="display:none">
+        <button class="reaction-btn" onclick="react('😂')">😂</button>
+        <button class="reaction-btn" onclick="react('😐')">😐</button>
+        <button class="reaction-btn" onclick="react('🤦')">🤦</button>
+        <button class="reaction-btn" onclick="react('👏')">👏</button>
+      </div>
+      <p class="reaction-msg" id="reactionMsg"></p>
+
+      <!-- buttons -->
+      <div class="action-buttons">
+        <button class="get-btn" onclick="getJoke()">Get New Joke</button>
+        <button class="copy-btn" onclick="copyJoke()">Copy Joke</button>
+      </div>
+
+      <!-- joke count -->
+      <p class="count-text" id="countText">0 jokes fetched</p>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
